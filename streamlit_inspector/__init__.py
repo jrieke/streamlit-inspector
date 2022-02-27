@@ -12,15 +12,6 @@ from pygments import highlight
 from pygments.formatters import HtmlFormatter
 from pygments.lexers import PythonLexer
 
-st.markdown(
-    """
-    <style>
-    
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-
 
 def wrap_expander(summary, details, indent=False):
     # Need to wrap details in div here so it appears on new line. We set summary to
@@ -39,13 +30,13 @@ def shorten(s, length=300):
 # Set up code formatter from pygments and write it's CSS to the app.
 lexer = PythonLexer()
 formatter = HtmlFormatter(style="autumn")
-st.write(
+st.markdown(
     "<style>" + formatter.get_style_defs(".highlight") + "</style>",
     unsafe_allow_html=True,
 )
 
 # Write other CSS to the app.
-st.write(
+st.markdown(
     """
     <style>
     
@@ -103,7 +94,7 @@ def _code_format(code):
 def _prettify_value(value):
     """Formats the value of an object and applies some nice tricks."""
     s = shorten(str(value))
-    
+
     # Add quotation marks to strings.
     if '"' in s and "'" in s:
         quote_char = '"""'
@@ -126,7 +117,7 @@ def _prettify_value(value):
 def _split_format_docstring(doc: str) -> str:
     """
     Splits and formats a docstring.
-    
+
     Returns a tuple of the first paragraph and all following paragraphs.
     """
     first, _, following = doc.partition("\n\n")
@@ -158,17 +149,18 @@ def _get_signature(name, obj):
 class KeyValueTable:
     """
     Table to align key-value pairs on an = sign in the middle.
-    
+
     E.g.:
 
       abc = 123
     abcde = 12345
         a = 1234567
        ab = 12
-       
+
     Left side is the key, right side is the value.
-    
+
     """
+
     def __init__(self):
         self.table_rows = []
 
@@ -213,7 +205,7 @@ def inspect(obj):
 
     # Divider that's placed between different sections (e.g. attributes and methods).
     divider = '<hr style="margin: 1rem -1rem">'
-    
+
     # Add a surrounding div with border.
     s = '<div style="border: 1px solid #d6d6d8; border-radius: 0.25rem; padding: 1rem; margin-bottom: 1rem;">'
 
@@ -241,9 +233,9 @@ def inspect(obj):
             s += f'<b>{title}:</b> <span class="gray-text">{first}</span>'
         else:
             s += f"<b>{title}</b>"
-    else: 
+    else:
         s += f"<b>{title}</b>"
-        
+
     s += divider
 
     # TODO: Thhis is code copied from rich. Check out if I still want to use it.
@@ -273,7 +265,7 @@ def inspect(obj):
     # if sort:
     #     items.sort(key=sort_items)
 
-    # Get all attributes from the object and put their names and values into a 
+    # Get all attributes from the object and put their names and values into a
     # KeyValueTable. Do not write the table to the app yet.
     attr_table = KeyValueTable()
     for attr in dir(obj):
@@ -292,7 +284,7 @@ def inspect(obj):
             )
     attr_text = str(attr_table)
 
-    # Get all methods from the object and put their signatures + docstrings into a 
+    # Get all methods from the object and put their signatures + docstrings into a
     # string. Do not write the string to the app yet.
     methods_text = ""
     for attr in dir(obj):
@@ -305,7 +297,7 @@ def inspect(obj):
             if docstring is not None:
                 first, following = _split_format_docstring(docstring)
                 if first and following:
-                    # If the docstring has > 1 paragraph, show the paragraphs beyond the 
+                    # If the docstring has > 1 paragraph, show the paragraphs beyond the
                     # 1st one in an expander.
                     value_text = _code_format(value_text + ":")
                     value_text += f'<span style="color: #84858c">{first}</span>'
@@ -321,10 +313,10 @@ def inspect(obj):
                     value_text = _code_format(value_text)
             else:
                 value_text = _code_format(value_text)
-                
+
             methods_text += "<div>" + value_text + "</div>"
 
-    # Write the attribute and method strings to the app, and add a divider in between if 
+    # Write the attribute and method strings to the app, and add a divider in between if
     # needed.
     s += attr_text
     if attr_text and methods_text:

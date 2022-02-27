@@ -46,7 +46,7 @@ class Balloon:
         pass
 
 
-st.set_page_config("Demo for streamlit-inspect", "🕵️‍♂️")
+# st.set_page_config("Demo for streamlit-inspect", "🕵️‍♂️")
 icon("🕵️‍♂️")
 """
 # Demo for [streamlit-inspect](https://github.com/jrieke/streamlit-inspect)
