@@ -1,5 +1,5 @@
 import streamlit as st
-from streamlit_inspect import inspect
+from streamlit_inspector import inspect
 
 
 class Balloon:
