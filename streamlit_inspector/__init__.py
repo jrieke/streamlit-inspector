@@ -30,60 +30,70 @@ def shorten(s, length=300):
 # Set up code formatter from pygments and write it's CSS to the app.
 lexer = PythonLexer()
 formatter = HtmlFormatter(style="autumn")
-st.markdown(
-    "<style>" + formatter.get_style_defs(".highlight") + "</style>",
-    unsafe_allow_html=True,
-)
 
-# Write other CSS to the app.
-st.markdown(
+
+def _write_css():
     """
-    <style>
+    Writes all required CSS code to the app.
     
-    /* Additional stuff for the formatter */
-    .highlight {
-        display: inline;
-    }
-    
-    .highlight .stCodeBlock {
-        margin: 0;
-        display: inline;
-    }
-    
-    .highlight a {
-        color: inherit;
-    }
-    
-    /* Basic elements */
-    .gray-text {
-        color: #84858c;
-    }
-    
-    /* Hacky expander via details/summary tags. Used to show multiple paragraphs from docstrings. */
-    details > summary {
-        list-style: none;
-        display: inline-block;
-    }
-    details > summary:hover {
-        color: #ff4b4b !important;
-    }
-    details > summary:hover span {
-        color: #ff4b4b !important;
-    }
-    summary::marker {
-        display: none;
-    }
-    summary::after {
-        content: " +";
-    }
-    details[open] summary:after {
-        content: " -";
-    }
-    
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
+    This needs to be done every time the app reruns, so we can not do this globally!
+    Because imports are only done once.
+    """
+
+    st.markdown(
+        "<style>" + formatter.get_style_defs(".highlight") + "</style>",
+        unsafe_allow_html=True,
+    )
+
+    # Write other CSS to the app.
+    st.markdown(
+        """
+        <style>
+        
+        /* Additional stuff for the formatter */
+        .highlight {
+            display: inline;
+        }
+        
+        .highlight .stCodeBlock {
+            margin: 0;
+            display: inline;
+        }
+        
+        .highlight a {
+            color: inherit;
+        }
+        
+        /* Basic elements */
+        .gray-text {
+            color: #84858c;
+        }
+        
+        /* Hacky expander via details/summary tags. Used to show multiple paragraphs from docstrings. */
+        details > summary {
+            list-style: none;
+            display: inline-block;
+        }
+        details > summary:hover {
+            color: #ff4b4b !important;
+        }
+        details > summary:hover span {
+            color: #ff4b4b !important;
+        }
+        summary::marker {
+            display: none;
+        }
+        summary::after {
+            content: " +";
+        }
+        details[open] summary:after {
+            content: " -";
+        }
+        
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
 
 
 def _code_format(code):
@@ -328,3 +338,4 @@ def inspect(obj):
 
     # Write everything to the app.
     st.write(s, unsafe_allow_html=True)
+    _write_css()
