@@ -51,13 +51,13 @@ b = create_balloon()
 ```
 
 You can quickly figure out that `b` is of type `Balloon`. 
-But what can you do with it? This is where [streamlit-inspect](https://github.com/jrieke/streamlit-inspect) 
+But what can you do with it? This is where [streamlit-inspector](https://github.com/jrieke/streamlit-inspector) 
 comes in!
 
 Just write:
 
 ```python
-from streamlit_inspect import inspect
+from streamlit_inspector import inspect
 
 inspect(b)
 ```
