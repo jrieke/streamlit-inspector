@@ -14,7 +14,7 @@
 ---
 
 <p align="center">
-    <a href="https://share.streamlit.io/jrieke/streamlit-inspector/main"><img src="demo.png" width=600></a>
+    <a href="https://share.streamlit.io/jrieke/streamlit-inspector/main"><img src="images/demo.png" width=600></a>
 </p>
 
 
