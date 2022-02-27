@@ -1,2 +1,2 @@
-# streamlit-inspect
-A Streamlit component to inspect Python objects
+# streamlit-inspector 🕵️
+Streamlit component to inspect Python objects
