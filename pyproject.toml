@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "streamlit-inspector"
-version = "0.1.0"
+version = "0.1.1"
 description = "🕵️ Streamlit component to inspect Python objects during development"
 authors = ["Johannes Rieke <johannes.rieke@gmail.com>"]
 license = "MIT"
