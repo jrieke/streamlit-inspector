@@ -5,7 +5,7 @@
 
 **Streamlit component to inspect Python objects during development.**
 
-Pass any object and streamlit-inspector will write an interactive preview of the object directly to your app, showing the objects type (with docstring), attributes (with values), and methods (with signatures and docstrings). 
+Pass any object and streamlit-inspector will write an interactive preview of the object directly to your app, showing the object's type (with docstring), attributes (with values), and methods (with signatures and docstrings). 
 
 ---
 
