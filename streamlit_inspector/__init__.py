@@ -217,7 +217,7 @@ def inspect(obj):
     divider = '<hr style="margin: 1rem -1rem">'
 
     # Add a surrounding div with border.
-    s = '<div style="border: 1px solid #d6d6d8; border-radius: 0.25rem; padding: 1rem; margin-bottom: 1rem;">'
+    s = '<div style="border: 1px solid #d6d6d8; border-radius: 0.25rem; padding: 1rem;">'
 
     # Add the string representation of the object itself.
     s += _code_format(repr(obj)) + divider
