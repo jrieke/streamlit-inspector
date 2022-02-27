@@ -8,7 +8,7 @@
 ---
 
 <h3 align="center">
-  🕵️ <a href="https://share.streamlit.io/jrieke/streamlit-inspector/main">Start inspecting</a> 🕵️
+  🔍 <a href="https://share.streamlit.io/jrieke/streamlit-inspector/main">Demo + instructions</a> 🔍
 </h3>
 
 ---
