@@ -2,6 +2,14 @@ import streamlit as st
 from streamlit_inspector import inspect
 
 
+def icon(emoji: str):
+    """Shows an emoji as a Notion-style page icon."""
+    st.write(
+        f'<span style="font-size: 78px; line-height: 1">{emoji}</span>',
+        unsafe_allow_html=True,
+    )
+
+
 class Balloon:
     """This class represents a balloon 🎈
 
@@ -38,8 +46,10 @@ class Balloon:
         pass
 
 
+st.set_page_config("Demo for streamlit-inspect", "🕵️‍♂️")
+icon("🕵️‍♂️")
 """
-# 🕵️‍♂️ streamlit-inspect
+# Demo for [streamlit-inspect](https://github.com/jrieke/streamlit-inspect)
 
 Imagine you installed a package to create balloons:
 
