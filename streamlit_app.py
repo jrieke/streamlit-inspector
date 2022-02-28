@@ -42,7 +42,7 @@ st.set_page_config("Demo for streamlit-inspect", "🕵️‍♂️")
 """
 # Demo for [streamlit-inspect](https://github.com/jrieke/streamlit-inspect) 🕵️‍♂️
 
-Imagine you installed a package to create balloons:
+Imagine you're using a package to create balloons:
 
 ```python
 from somepackage import create_balloon
@@ -50,11 +50,8 @@ from somepackage import create_balloon
 b = create_balloon()
 ```
 
-You can quickly figure out that `b` is of type `Balloon`. 
-But what can you do with it? This is where [streamlit-inspector](https://github.com/jrieke/streamlit-inspector) 
-comes in!
-
-Just write:
+But what is `b`? That's where [streamlit-inspector](https://github.com/jrieke/streamlit-inspector) 
+comes in:
 
 ```python
 from streamlit_inspector import inspect
@@ -62,7 +59,7 @@ from streamlit_inspector import inspect
 inspect(b)
 ```
     
-and you get an interactive preview of the object:
+This gives you an interactive description of `b`:
 
 """
 b = Balloon("red")
