@@ -59,7 +59,8 @@ from streamlit_inspector import inspect
 inspect(b)
 ```
     
-This gives you an interactive description of `b`:
+This gives you an interactive description of `b`, including its type, attributes, 
+and methods:
 
 """
 b = Balloon("red")
