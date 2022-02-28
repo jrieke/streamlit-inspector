@@ -42,7 +42,7 @@ st.set_page_config("Demo for streamlit-inspect", "🕵️‍♂️")
 """
 # Demo for [streamlit-inspect](https://github.com/jrieke/streamlit-inspect) 🕵️‍♂️
 
-Imagine you're using a package to create balloons:
+Imagine you're writing a Streamlit app and using a package to create balloons:
 
 ```python
 from somepackage import create_balloon
